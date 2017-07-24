@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Welcome to Ubermelon{% endblock %}
+
+{% block content %}
+  <h1 class="white-header">UberMelon’s Most Loved Melons</h1>
+  <br/>
+  <div id="home_block">
+      <h2>Let's get to know each other:</h2>
+      <form action='/get-name'>
+        What's your name? <input type="text" name="name" required>
+        <br/><br/>
+        <input type="submit" value='Say my name!'>
+      </form>
+  </div>
+{% endblock %}

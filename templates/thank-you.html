@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}Thanks from Ubermelon{% endblock %}
+
+{% block content %}
+  <h1 class="white-header">Thank you, {{ session['name'] }}!</h1>
+  <br/>
+  <h3 class="white-header">Would you like to <a href='/top-melons' class="yellow-link">vote again</a>?
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}We Love Melons!{% endblock %}
+
+{% block content %}
+
+  <h1 class="white-header">Welcome, {{ session['name'] }}</h1>
+
+  <!-- Create a div for every Most Loved Melon using a Jinja for loop -->
+  <div class="select-melon">
+    {% for melon in melons %}
+      <div class='melon-div'>
+        <h3 class="white-header">{{ session['name'] }}, this is a {{ melons[melon].name }}</h3>
+        <h2 class="white-header">{{ melons[melon].num_loves }}</h2>
+        <img src={{ melons[melon].img }}>
+      </div>
+    {% endfor %}
+  </div>
+  <!-- Give user the option to love some of our melons! -->
+  <br/>
+  <h3 class='white-header'>{{ session['name'] }}, tell us what melons you love!</h3><br/>
+  <div class="select-melon">
+    <form action='/love-melon' method="POST">
+      <select name="melon-to-love">
+        {% for melon in melons %}
+          <option value={{ melon }}>{{ melons[melon].name }}</option>
+        {% endfor %}
+      </select>
+      <input type="submit" value="Love It!">
+    </form>
+  </div>
+{% endblock %}
